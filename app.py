@@ -25,7 +25,11 @@ if uploaded_file is not None:
     predictions= model.predict(img_array)
     confidence= np.max(predictions)*100
     predicted_class= class_names[np.argmax(predictions)]
-    st.subheader("Prediction Results")
-    st.write(f"Predicted Class: {predicted_class}")
-    st.write(f"Confidence: {confidence:.2f}%")
+    
+    for i in range(len(class_names)):
+        st.write(f"{class_names[i]} confidence: {predictions[0][i]*100:.2f}")
+    
+    # st.subheader("Prediction Results")
+    # st.write(f"Predicted Class: {predicted_class}")
+    # st.write(f"Confidence: {confidence:.2f}%")
 

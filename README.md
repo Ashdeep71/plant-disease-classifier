@@ -12,13 +12,21 @@ The project also includes a Streamlit web application that allows users to uploa
 
 ---
 
+## Demo
+
+Users can upload potato leaf images and receive real-time disease predictions directly through the Streamlit interface.
+
+---
+
 ## Features
 
 - Image classification using CNNs
 - TensorFlow/Keras deep learning pipeline
 - Image preprocessing and normalization
-- Training and validation accuracy visualization
+- Data augmentation for improved generalization
+- Training and validation accuracy/loss visualization
 - Real-time prediction using Streamlit
+- Confidence score visualization for predictions
 - Upload custom leaf images for testing
 
 ---
@@ -53,6 +61,10 @@ For this version of the project, only the following potato classes were used:
 
 The CNN architecture consists of:
 
+- Data augmentation layers
+  - RandomFlip
+  - RandomRotation
+  - RandomZoom
 - Rescaling layer for normalization
 - 3 Convolutional layers
 - MaxPooling layers
@@ -134,18 +146,31 @@ python -m streamlit run app.py
 
 ## Model Performance
 
-The CNN achieved high training and validation accuracy on the potato leaf dataset.
+The final CNN model achieved approximately:
+
+- ~95% training accuracy
+- ~95% validation accuracy
+
+Data augmentation was used to improve generalization and reduce overfitting.
 
 The model was able to correctly identify most healthy and diseased potato leaves from unseen validation images.
+
+---
+
+## Note
+
+The dataset and trained model file are not included in this repository due to GitHub file size limitations.
+
+The dataset can be downloaded from Kaggle and the model can be trained locally using the provided notebook and scripts.
 
 ---
 
 ## Future Improvements
 
 - Add more plant disease classes
-- Improve generalization using data augmentation
-- Use transfer learning with MobileNetV2 or EfficientNet
-- Deploy application online
+- Experiment with transfer learning using MobileNetV2 or EfficientNet
+- Expand support to additional plant diseases and crops
+- Deploy the application online
 - Add treatment recommendations for detected diseases
 
 ---
@@ -180,3 +205,15 @@ Through this project, I learned:
 - Model evaluation and validation
 - Deep learning inference pipelines
 - Deploying ML applications using Streamlit
+
+---
+
+## Key Concepts Explored
+
+- Convolutional Neural Networks (CNNs)
+- Image preprocessing and normalization
+- Overfitting and validation
+- Data augmentation
+- Batch training
+- Model inference pipelines
+- Streamlit deployment
