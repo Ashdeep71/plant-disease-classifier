@@ -51,9 +51,9 @@ https://www.kaggle.com/datasets/emmarex/plantdisease
 
 For this version of the project, only the following potato classes were used:
 
-- Potato___Early_blight
-- Potato___Late_blight
-- Potato___healthy
+- Potato\_\_\_Early_blight
+- Potato\_\_\_Late_blight
+- Potato\_\_\_healthy
 
 ---
 
@@ -97,7 +97,9 @@ plant-image-classifier/
 |   |-- streamlitUI.png
 |   |-- streamlitUI2.png
 |   |-- training_and_validation_accuracy_graph.png
-|   `-- training_and_validation_loss_graph.png
+|   |-- training_and_validation_loss_graph.png
+|   |-- transfer_learning_accuracy_graph.png
+|   `-- transfer_learning_loss_graph.png
 |
 |-- app.py
 |-- requirements.txt
@@ -157,6 +159,32 @@ The model was able to correctly identify most healthy and diseased potato leaves
 
 ---
 
+## Version 2: Transfer Learning
+
+After building the first custom CNN model, I improved the project using transfer learning with MobileNetV2.
+
+MobileNetV2 was used as a pretrained feature extractor, and custom Dense layers were added for the 3 potato disease classes.
+
+This version includes:
+
+- MobileNetV2 pretrained on ImageNet
+- Frozen base model layers
+- Data augmentation
+- Rescaling to match MobileNetV2 input format
+- GlobalAveragePooling2D
+- Dense classification head
+
+---
+
+## Model Comparison
+
+| Model     | Approach                      | Validation Accuracy |
+| --------- | ----------------------------- | ------------------- |
+| Version 1 | Custom CNN                    | ~95%                |
+| Version 2 | MobileNetV2 Transfer Learning | ~98%                |
+
+---
+
 ## Note
 
 The dataset and trained model file are not included in this repository due to GitHub file size limitations.
@@ -168,7 +196,7 @@ The dataset can be downloaded from Kaggle and the model can be trained locally u
 ## Future Improvements
 
 - Add more plant disease classes
-- Experiment with transfer learning using MobileNetV2 or EfficientNet
+- Fine-tune deeper MobileNetV2 layers for additional performance
 - Expand support to additional plant diseases and crops
 - Deploy the application online
 - Add treatment recommendations for detected diseases
@@ -189,9 +217,17 @@ The dataset can be downloaded from Kaggle and the model can be trained locally u
 
 ### Training Graphs
 
+Version 1 custom CNN:
+
 ![Training and validation accuracy graph](images/training_and_validation_accuracy_graph.png)
 
 ![Training and validation loss graph](images/training_and_validation_loss_graph.png)
+
+Version 2 MobileNetV2 transfer learning:
+
+![Transfer learning accuracy graph](images/transfer_learning_accuracy_graph.png)
+
+![Transfer learning loss graph](images/transfer_learning_loss_graph.png)
 
 ---
 
@@ -205,6 +241,7 @@ Through this project, I learned:
 - Model evaluation and validation
 - Deep learning inference pipelines
 - Deploying ML applications using Streamlit
+- Transfer Learning
 
 ---
 
@@ -217,3 +254,4 @@ Through this project, I learned:
 - Batch training
 - Model inference pipelines
 - Streamlit deployment
+- Transfer Learning

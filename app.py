@@ -4,7 +4,7 @@ import numpy as np
 from PIL import Image
 
 
-model= tf.keras.models.load_model("model/plant_disease_model.keras")
+model= tf.keras.models.load_model("model/plant_disease_mobilenet_model.keras")
 
 class_names= ["Potato Early Blight", "Potato Late Blight", "Potato Healthy"]
 
